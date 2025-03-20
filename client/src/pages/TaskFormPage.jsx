@@ -17,7 +17,7 @@ export function TasksFormPage() {
   const onSubmit = handleSubmit(async (data) => {
     if (params.id) {
       await updateTask(params.id, data);
-      toast.success("Tarea Actualizada", {
+      toast.success("Tarea Actualiada", {
         position: "bottom-right",
         style: {
           background: "#101010",
@@ -45,27 +45,27 @@ export function TasksFormPage() {
         setValue("description", data.description);
       }
     }
-    loadTask();
-  }, []);
+    loadTask()
+  },);
 
   return (
     <div className="max-w-xl mx-auto">
       <form onSubmit={onSubmit}>
         <input
           type="text"
-          placeholder="title"
+          placeholder="Título"
           {...register("title", { required: true })}
           className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         />
-        {errors.title && <span>Title is required.</span>}
+        {errors.title && <span>Título es requerido.</span>}
 
         <textarea
           rows="3"
-          placeholder="Description"
+          placeholder="Descripción"
           {...register("description", { required: true })}
           className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         ></textarea>
-        {errors.description && <span>Description is required.</span>}
+        {errors.description && <span>Descripción es requerido.</span>}
 
         <button className="bg-indigo-500 p-3 rounded-lg block w-full mt-3">
           Guardar
@@ -80,7 +80,7 @@ export function TasksFormPage() {
               const accepted = window.confirm("¿Desea eliminar esta tarea?");
               if (accepted) {
                 await deleteTask(params.id);
-                toast.success("Tarea Eliminada", {
+                toast.success("Tarea eliminada", {
                   position: "bottom-right",
                   style: {
                     background: "#101010",
@@ -91,7 +91,7 @@ export function TasksFormPage() {
               }
             }}
           >
-            Delete
+            Borrar Tarea
           </button>
         </div>
       )}
